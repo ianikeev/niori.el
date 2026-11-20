@@ -1,0 +1,19 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: niori referral letter
+# key: nref
+# type: text
+# --
+${1:$(format-time-string "%e %B %Y")}
+
+${2:Specialist name}
+${3:Address}
+
+Dear ${4:Dr. Name},
+
+Thank you for seeing ${5:patient name}, who attended on ${6:date}
+with ${7:presenting complaint}.
+
+$0
+
+Kind regards,
+${8:`(user-full-name)`}

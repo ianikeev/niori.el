@@ -1,0 +1,18 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: niori visit letter
+# key: nvisit
+# type: text
+# --
+${1:$(format-time-string "%e %B %Y")}
+
+${2:Recipient name}
+${3:Address}
+
+Re: consultation of ${4:`(if (boundp 'niori-letter-visit-date) niori-letter-visit-date "DATE")`}
+
+Dear ${5:Dr. Name},
+
+$0
+
+Yours sincerely,
+${6:`(user-full-name)`}

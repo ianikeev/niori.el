@@ -1,0 +1,15 @@
+;; MELPA recipe for the niori package.
+;; See https://github.com/melpa/melpa/blob/master/README.md
+
+(niori
+ :fetcher github
+ :repo "ianikeev/niori.el"
+ :files (:defaults
+         "icons/*.png"
+         "icons/*.svg"
+         "snippets/*/*.yasnippet"
+         "etc/niori.desktop"
+         "bin/niori"
+         "Makefile"
+         "tests/*.el"
+         "ARCHITECTURE.md"))

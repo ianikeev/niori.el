@@ -1,0 +1,55 @@
+# Byte-compiled / native-compiled elisp
+*.elc
+*.elc.tmp
+*.eln
+eln-cache/
+
+# Generated package metadata and build output
+*-pkg.el
+*-autoloads.el
+*.tar
+/dist/
+
+# Emacs session state that can land in the tree
+auto-save-list/
+saves-*/
+.emacs.desktop
+.emacs.desktop.lock
+.org-id-locations
+
+# Backups and lock files
+*~
+\#*\#
+.\#*
+
+# Per-project Emacs configuration
+.dir-locals.el
+.dir-locals-2.el
+
+# Package sandboxes and tooling caches
+/elpa/
+.cask/
+.eask/
+/straight/
+/elpaca/
+.lsp/
+.cache/
+
+# Runtime data produced by the app (never commit health records)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.niori-data
+/var/
+
+# …including when a data directory is ever pointed inside the tree
+documents/
+backups/
+exports/
+letters/
+
+# OS noise
+.DS_Store
+
+/aidocs/

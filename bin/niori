@@ -1,0 +1,27 @@
+#!/bin/sh
+# niori — run the niori medical records manager as a standalone
+# application on a stock Emacs (no configuration needed).
+#
+# Works both from a repository checkout (this script sits next to the
+# .el files) and from a `make install'ed copy (PREFIX/bin/niori with
+# the sources in PREFIX/share/emacs/site-lisp/niori).
+
+set -e
+
+SELF=$(readlink -f "$0")
+BIN_DIR=$(dirname "$SELF")
+
+ROOT=""
+for candidate in "$BIN_DIR/.." "$BIN_DIR/../share/emacs/site-lisp/niori"; do
+    if [ -f "$candidate/niori.el" ]; then
+        ROOT=$(cd "$candidate" && pwd)
+        break
+    fi
+done
+
+if [ -z "$ROOT" ]; then
+    echo "niori: cannot locate niori.el next to $SELF" >&2
+    exit 1
+fi
+
+exec "${EMACS:-emacs}" -Q -l "$ROOT/niori-standalone.el" -f niori-standalone-run "$@"

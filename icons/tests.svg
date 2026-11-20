@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- niori: lab tests (flask) -->
+  <path d="M26 8h12v14l11 24a6 6 0 0 1-5.4 8.6H20.4A6 6 0 0 1 15 46l11-24z" fill="none" stroke="#0031a9" stroke-width="3.5" stroke-linejoin="round"/>
+  <line x1="21" y1="14" x2="43" y2="14" stroke="#0031a9" stroke-width="3" stroke-linecap="round"/>
+  <path d="M20 42c6-3 10 3 15 1s9-4 9-4l3.5 7.5A6 6 0 0 1 42 54.6H20.4L17 47z" fill="#0031a9" opacity="0.3"/>
+</svg>

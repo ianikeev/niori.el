@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=niori
+GenericName=Medical Records
+Comment=Personal medical information manager (medications, visits, tests, vaccinations)
+Comment[es]=Gestor personal de información médica
+Exec=niori
+Icon=niori
+Terminal=false
+Categories=Office;Utility;
+Keywords=health;medical;records;medications;visits;vaccinations;
+StartupWMClass=Emacs
