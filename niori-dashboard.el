@@ -113,8 +113,8 @@ use TAB to move between buttons."
         (insert "  ")))
     (insert "\n\n")
     (insert (propertize
-             (concat "C-c n ?  — command menu      "
-                     "C-c n C-h  — keymap overview      "
+             (concat "C-c M ?  — command menu      "
+                     "C-c M C-h  — keymap overview      "
                      "g  — refresh      "
                      "q  — hide")
              'face 'shadow)

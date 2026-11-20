@@ -53,3 +53,4 @@ letters/
 .DS_Store
 
 /aidocs/
+.github/copilot-instructions.md

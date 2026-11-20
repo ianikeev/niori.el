@@ -52,7 +52,7 @@ Cross-cutting:
   JSON.
 - **History**: every change or deletion is snapshotted; `D` on any
   record opens an `ediff` against the previous revision.
-- **Backups**: `C-c n b` copies the database to a timestamped file.
+- **Backups**: `C-c M b` copies the database to a timestamped file.
 
 ## Requirements
 
@@ -119,26 +119,26 @@ which installs `bin/niori`, the Elisp sources under
 
 `M-x niori` opens the dashboard and enables the key bindings
 (`niori-mode`, a global minor mode). Everything is reachable from
-there with buttons, or the `C-c n` prefix:
+there with buttons, or the `C-c M` prefix:
 
 | Keys            | Action                                  |
 |-----------------|-----------------------------------------|
-| `C-c n d`       | dashboard                                |
-| `C-c n m / v / t / c` | medications / visits / lab tests / vaccinations rosters |
-| `C-c n a m` etc.| new record (medication, visit, …)        |
-| `C-c n E o / c / j` | export as Org / CSV / FHIR JSON     |
-| `C-c n D`       | diff a record against its last revision  |
-| `C-c n f`       | every document you have attached          |
-| `C-c n l`       | compose a letter from a visit            |
-| `C-c n b`       | backup the database                      |
-| `C-c n ?`       | transient command menu                   |
-| `C-c n C-h`     | full keymap overview                     |
+| `C-c M d`       | dashboard                                |
+| `C-c M m / v / t / c` | medications / visits / lab tests / vaccinations rosters |
+| `C-c M a m` etc.| new record (medication, visit, …)        |
+| `C-c M E o / c / j` | export as Org / CSV / FHIR JSON     |
+| `C-c M D`       | diff a record against its last revision  |
+| `C-c M f`       | every document you have attached          |
+| `C-c M l`       | compose a letter from a visit            |
+| `C-c M b`       | backup the database                      |
+| `C-c M ?`       | transient command menu                   |
+| `C-c M C-h`     | full keymap overview                     |
 
 In a roster: `RET` opens the record, `a` adds, `e` edits, `d`
 deletes, `g` refreshes, `S` or clicking a header sorts, `L` writes a
 letter (visits). In a form: `C-c C-c` saves, `C-c C-k` cancels. In a
 detail view: `A` attaches a file to the record. In the documents
-buffer (`C-c n f`): `RET` opens, `f` opens externally, `o` shows the
+buffer (`C-c M f`): `RET` opens, `f` opens externally, `o` shows the
 folder in Dired, `r` retitles, `d` detaches.
 
 CUA bindings (`C-x`/`C-c`/`C-v` cut/copy/paste) are available for
@@ -157,7 +157,7 @@ cua-mode` anytime).
   ~/.local/share/niori/
   ├── niori.db                      the database
   ├── documents/visits/42/2026-11-20-lab-report.pdf
-  ├── backups/                      C-c n b output
+  ├── backups/                      C-c M b output
   ├── exports/                      Org / CSV / FHIR output
   └── letters/                      reserved for saved letters
   ```
@@ -200,16 +200,16 @@ cua-mode` anytime).
   orphaned by a deleted record; `M-x niori-attachments-purge-orphans`
   cleans them up).
 - Exports land in `…/niori/exports/`. The Org export can be
-  **encrypted** (`C-u C-c n E o`) with EasyPG to the keys in
+  **encrypted** (`C-u C-c M E o`) with EasyPG to the keys in
   `niori-encryption-recipients`. If you keep narrative notes in Org
   instead, `org-crypt` (built-in) encrypts subtrees on save — niori
   stays out of the way of both styles.
-- `niori-store-backup` (`C-c n b`) copies the database with a
+- `niori-store-backup` (`C-c M b`) copies the database with a
   timestamp; keep a copy on offline media.
 
 ## FHIR interoperability
 
-`C-c n E j` (or `M-x niori-fhir-export`) writes a module as a FHIR
+`C-c M E j` (or `M-x niori-fhir-export`) writes a module as a FHIR
 R4 collection Bundle: medications become `MedicationStatement`,
 visits `Encounter`, lab tests `Observation` (numeric results as
 `valueQuantity`, flags as `H`/`L`/`A` interpretation codes),

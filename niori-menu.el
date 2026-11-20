@@ -20,12 +20,12 @@
 
 ;;; Commentary:
 
-;; Every niori key binding lives under the single `C-c n' prefix,
+;; Every niori key binding lives under the single `C-c M' prefix,
 ;; enabled by the global minor mode `niori-mode' (the same convention
 ;; used by org-roam).  An overview is always available:
 ;;
-;;   C-c n C-h   describe the whole prefix map
-;;   C-c n ?     the `transient' command menu (when transient is
+;;   C-c M C-h   describe the whole prefix map
+;;   C-c M ?     the `transient' command menu (when transient is
 ;;               installed; otherwise a which-key/keyboard fallback)
 ;;
 ;; The standalone application additionally installs a menu-bar entry
@@ -53,7 +53,7 @@
 (declare-function niori-fhir-export "niori-fhir")
 
 (defvar-keymap niori-command-map
-  :doc "niori prefix map, bound to `C-c n' by `niori-mode'."
+  :doc "niori prefix map, bound to `C-c M' by `niori-mode'."
   "d" #'niori-dashboard
   "m" #'niori-medications
   "v" #'niori-visits
@@ -71,11 +71,11 @@
 ;;;###autoload
 (define-minor-mode niori-mode
   "Toggle the global niori key bindings.
-This binds `niori-command-map' under the `C-c n' prefix."
+This binds `niori-command-map' under the `C-c M' prefix."
   :global t
   :group 'niori
   :keymap (let ((map (make-sparse-keymap)))
-            (define-key map (kbd "C-c n") niori-command-map)
+            (define-key map (kbd "C-c M") niori-command-map)
             map)
   (when niori-mode
     (condition-case error

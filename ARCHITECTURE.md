@@ -19,7 +19,7 @@ than code:
 |---------------------------------------|------------------------------------------------------|
 | Module system (`niori-module`)        | `niori-register-module` in **niori-platform.el** — modules register a plist (schema, roster columns, form fields, dashboard function) |
 | Lookup / service registry             | `niori-register-service` / `niori-lookup`            |
-| Command system (actions)              | `niori-register-command` + `C-c n` keymap + `transient` menu (**niori-menu.el**, **niori-transient.el**) |
+| Command system (actions)              | `niori-register-command` + `C-c M` keymap + `transient` menu (**niori-menu.el**, **niori-transient.el**) |
 | TopComponent / CLOG views             | generic buffers in **niori-view.el**: rosters (`tabulated-list-mode`), forms (`widget`), details (`special-mode` with buttons) |
 | Central dashboard view                | **niori-dashboard.el**, sections contributed by each module's `:dashboard-fn` |
 | Derby/SQLite persistence + migrations | **niori-store.el** on the built-in `sqlite` binding, numbered migrations in `schema_migrations` |
@@ -35,7 +35,7 @@ niori-platform.el     module/service/command registries + shared utils
 niori-store.el        SQLite: data directory, schemas, migrations, CRUD, revisions, backup
 niori-view.el         rosters, widget forms, detail buffers, exports, ediff
 niori-dashboard.el    the dashboard buffer
-niori-menu.el         C-c n keymap, niori-mode, menu bar
+niori-menu.el         C-c M keymap, niori-mode, menu bar
 niori-transient.el    transient menu (runtime-defined)
 niori-appearance.el   Modus themes (auto-dark) + fonts (fontaine)
 niori-medications.el  module: medications
@@ -212,7 +212,7 @@ code. Status of everything considered:
 | EmacSQL | **not used** | extra dependency + external-process backend; parameterised SQL behind the schema registry is smaller and typed |
 | `widget.el` (built-in) | used, core | all create/edit forms |
 | `tabulated-list-mode` (built-in) | used, core | all rosters |
-| `transient` (GNU ELPA) | used when present | `C-c n ?` command menu; runtime-defined, with fallback |
+| `transient` (GNU ELPA) | used when present | `C-c M ?` command menu; runtime-defined, with fallback |
 | `which-key` (built-in 30 / GNU ELPA) | used when present | keymap discoverability in standalone |
 | `use-package` (built-in) | documented | installation examples in README |
 | EasyPG `epa` (built-in) | used | encrypted Org export (needs `gpg` + `niori-encryption-recipients`) |
@@ -238,9 +238,9 @@ so absence is a graceful downgrade, not an error.
 
 ## Design decisions worth remembering
 
-- **Why `C-c n`**: a single reserved-for-the-user prefix (`C-c n`)
-  chosen by the project owner, mirroring org-roam's convention; the
-  global minor mode means zero footprint until you run `M-x niori`.
+- **Why `C-c M`**: a single reserved-for-the-user prefix (`C-c M`)
+  chosen to avoid collision with other packages that use `C-c n` (such as
+  deft); the global minor mode means zero footprint until you run `M-x niori`.
 - **Why SQLite and not Org files**: the original niori is a
   relational record manager — dates, flags, joins ("latest result
   per test with abnormal flag") are natural in SQL and awkward in

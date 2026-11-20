@@ -30,16 +30,16 @@
 ;; niori is a personal medical records manager: medications, visits,
 ;; lab tests and vaccinations stored in a local SQLite database, with
 ;; a dashboard for what needs attention.  This package ports the
-;; Common Lisp/CLOG original to Emacs, reusing the platform Emacs
+;; original application to Emacs, reusing the platform Emacs
 ;; provides instead of reimplementing it (see ARCHITECTURE.md).
 ;;
 ;; Quick start:
 ;;
-;;   M-x niori            open the dashboard and enable C-c n keys
-;;   C-c n m / v / t / c  rosters: medications, visits, tests,
+;;   M-x niori            open the dashboard and enable C-c M keys
+;;   C-c M m / v / t / c  rosters: medications, visits, tests,
 ;;                        vaccinations
-;;   C-c n C-h            overview of every niori key binding
-;;   C-c n ?              the transient command menu
+;;   C-c M C-h            overview of every niori key binding
+;;   C-c M ?              the transient command menu
 ;;
 ;; Data lives in one directory the user chooses; see
 ;; `niori-data-directory'.  It holds the SQLite database, the documents
