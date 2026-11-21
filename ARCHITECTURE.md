@@ -1,21 +1,16 @@
 # niori.el architecture
 
-This document explains how the Emacs port of
-[niori](https://github.com/ianikeev/niori) maps the original
-Common Lisp/CLOG application onto Emacs concepts, and records the
-design decisions behind the mapping.
+## Emacs as an App Platform
 
-## From NetBeans Platform to Emacs
-
-The original niori is a modular CLOG desktop application modelled on
-the NetBeans Platform: modules plug into a runtime, publish services
-through a lookup registry, expose commands, and build their views on
-top of a shared windowing/persistence layer.
+The original idea was to build a modular CLOG desktop application
+inspired by the NetBeans Platform architechture: modules plug into a
+runtime, publish services through a lookup registry, expose commands,
+and build their views on top of a shared windowing/persistence layer.
 
 Emacs already is such a platform, so the port maps concepts rather
 than code:
 
-| Original (NetBeans / CLOG)            | niori.el                                             |
+| Original Concept (NetBeans-style)     | niori.el                                             |
 |---------------------------------------|------------------------------------------------------|
 | Module system (`niori-module`)        | `niori-register-module` in **niori-platform.el** — modules register a plist (schema, roster columns, form fields, dashboard function) |
 | Lookup / service registry             | `niori-register-service` / `niori-lookup`            |
@@ -241,7 +236,7 @@ so absence is a graceful downgrade, not an error.
 - **Why `C-c M`**: a single reserved-for-the-user prefix (`C-c M`)
   chosen to avoid collision with other packages that use `C-c n` (such as
   deft); the global minor mode means zero footprint until you run `M-x niori`.
-- **Why SQLite and not Org files**: the original niori is a
+- **Why SQLite and not Org files**: Niori is a
   relational record manager — dates, flags, joins ("latest result
   per test with abnormal flag") are natural in SQL and awkward in
   plain text. Org remains the *export* and *narrative* layer.
@@ -268,5 +263,6 @@ so absence is a graceful downgrade, not an error.
   "modules contain no buffer code" rule intact.
 - **Why lexical binding everywhere and GPL-3.0-or-later**: lexical
   binding is modern Elisp hygiene (closures in the widget/button
-  callbacks depend on it); the GPL keeps the port license-compatible
-  with the original niori.
+  callbacks depend on it); the GPL ensure compatibility with Emacs
+  itself and provides the [Four Essential
+  Freedoms](https://www.gnu.org/philosophy/free-sw.html) to the users.

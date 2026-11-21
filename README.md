@@ -1,32 +1,32 @@
 # niori.el — personal medical records for Emacs
 
-niori is a personal medical information manager: your
-**medications, visits, lab tests and vaccinations** in a single local
-SQLite database, presented through a dashboard that surfaces what needs
-attention — upcoming appointments, abnormal results, boosters that
-are due.  The reports and scans behind those records (PDF, DOCX,
-images) live in the same directory, attached to the record they belong
-to.
+Niori is a personal medical information manager: your **medications,
+visits, lab tests, vaccinations, and other documents** in a single
+local SQLite database, presented through a dashboard that surfaces
+what needs attention — upcoming appointments, abnormal results,
+boosters that are due.  The reports and scans behind those records
+(PDF, DOCX, images) live in the same directory, attached to the record
+they belong to.
 
-It is an Emacs port of the
-[niori](https://github.com/ianikeev/niori) Common Lisp/CLOG
-application and keeps its NetBeans-Platform-style module
-architecture, translated to Emacs idioms (see
-[ARCHITECTURE.md](ARCHITECTURE.md) for the concept mapping). Rather
-than reimplementing UI toolkits, it composes the platform Emacs
-already provides: `tabulated-list-mode` rosters, `widget` forms, the
-built-in `sqlite` binding, Modus themes, transient menus.
+It is built on the very stable Emacs foundation and takes its
+inspiration from the NetBeans-Platform-style module architecture,
+translated to Emacs idioms (see [ARCHITECTURE.md](ARCHITECTURE.md) for
+the concept mapping). Rather than reimplementing UI toolkits, it
+composes the platform Emacs already provides: `tabulated-list-mode`
+rosters, `widget` forms, the built-in `sqlite` binding, Modus themes,
+transient menus.
 
 - Runs as a **package inside your Emacs**, or as a **standalone
   application** on a stock, configuration-free Emacs (`bin/niori`).
 - **Your data stays yours**: one data directory under the XDG data
   dirs — the SQLite database plus every attached document —
-  offline by default, with an optional GPG-encrypted Org export and
+  offline =by default, with an optional GPG-encrypted Org export and
   automatic revision snapshots you can diff with `ediff`.
 - FHIR R4 export (MedicationStatement, Encounter, Observation,
   Immunization bundles) and an authenticated FHIR client.
-- GPL-3.0-or-later, lexical binding everywhere, GNU ELPA
-  dependencies only.
+- GPL-3.0-or-later, lexical binding everywhere, aiming to confine
+  itself to GNU ELPA dependencies only (but without fanaticism, when
+  practical).
 
 ## Features
 
@@ -279,6 +279,4 @@ rendering — 67 tests, no display required.
 
 ## License
 
-GPL-3.0-or-later (see [LICENSE](LICENSE)), like the original niori.
-Portions of the architecture documentation reference the original
-project by ianikeev.
+GPL-3.0-or-later (see [LICENSE](LICENSE)).
