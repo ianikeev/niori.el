@@ -76,6 +76,10 @@ This binds `niori-command-map' under the `C-c M' prefix."
   :group 'niori
   :keymap (let ((map (make-sparse-keymap)))
             (define-key map (kbd "C-c M") niori-command-map)
+            (define-key map (kbd "C-c M") niori-command-map)
+            (define-key map (kbd "C-=") #'text-scale-increase)
+            (define-key map (kbd "C-+") #'text-scale-increase)
+            (define-key map (kbd "C--") #'text-scale-decrease)
             map)
   (when niori-mode
     (condition-case error
